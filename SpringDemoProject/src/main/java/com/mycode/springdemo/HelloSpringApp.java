@@ -5,8 +5,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class HelloSpringApp {
     public static void main(String [] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        //Creating the Spring Container by using the xml configuration
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        //getting the beans
         Coach theCoach = context.getBean("myCoach",Coach.class);
+
         System.out.println(theCoach.getDailyWorkOut());
+
+        //closing the context
+        context.close();
     }
 }
