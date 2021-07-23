@@ -15,18 +15,10 @@
           class="com.mycode.springdemo.HappyFortuneService">
     </bean>
     <bean id="myCoach"
-        class="com.mycode.springdemo.BaseballCoach">
+        class="com.mycode.springdemo.BaseballCoach"
+        scope="prototype">
         <!--set up constructor injection-->
         <constructor-arg ref="myFortune" />
-    </bean>
-    <bean id="myCricketCoach"
-          class="com.mycode.springdemo.CricketCoach">
-        <!--set up setter injection-->
-        <property name="fortuneService" ref="myFortune"/>
-
-        <!-- Set up literal values -->
-        <property name="emailAddress" value="${coach.email}"/>
-        <property name="team" value="${coach.team}"/>
     </bean>
 </beans>
 

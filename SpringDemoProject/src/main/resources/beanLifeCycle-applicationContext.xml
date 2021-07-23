@@ -6,6 +6,7 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
+
     <!--load propeties file here -->
     <context:property-placeholder location="classpath:sport.properties"/>
 
@@ -15,18 +16,11 @@
           class="com.mycode.springdemo.HappyFortuneService">
     </bean>
     <bean id="myCoach"
-        class="com.mycode.springdemo.BaseballCoach">
+        class="com.mycode.springdemo.TrackCoach"
+        init-method="initMethod"
+        destroy-method="destroyMethod">
         <!--set up constructor injection-->
         <constructor-arg ref="myFortune" />
-    </bean>
-    <bean id="myCricketCoach"
-          class="com.mycode.springdemo.CricketCoach">
-        <!--set up setter injection-->
-        <property name="fortuneService" ref="myFortune"/>
-
-        <!-- Set up literal values -->
-        <property name="emailAddress" value="${coach.email}"/>
-        <property name="team" value="${coach.team}"/>
     </bean>
 </beans>
 
